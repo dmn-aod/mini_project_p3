@@ -43,4 +43,12 @@ test.describe('File Upload Feature', () => {
     // Verify tên file khớp với file đã upload
     expect(uploadedFileName).toContain('sample-upload.txt');
   });
+
+  test('TC11 — Upload thất bại hoặc không đổi trang khi chưa chọn file', async ({ page }) => {
+    // Chỉ bấm nút submit mà không chọn file trước
+    await uploadPage.uploadButton.click();
+    
+    // Verify hệ thống vẫn ở trang upload (không redirect sang trang thành công)
+    await expect(page).toHaveURL(/.*upload/);
+  });
 });

@@ -30,4 +30,10 @@ test.describe('Dropdown Feature', () => {
     const selectedValue = await dropdownPage.getSelectedOption();
     expect(selectedValue).toBe('2');
   });
+
+  test('TC09 — Verify trạng thái mặc định ban đầu của dropdown', async () => {
+    // Theo trang demo the-internet, trạng thái mặc định ban đầu chưa chọn option hợp lệ (value trống hoặc text là "Please select an option")
+    const selectedText = await dropdownPage.getSelectedOptionText();
+    expect(selectedText).toContain('Please select an option');
+  });
 });

@@ -1,7 +1,7 @@
-// Cấu hình chính cho Playwright test suite
-const { defineConfig, devices } = require('@playwright/test');
+import { defineConfig, devices } from '@playwright/test';
 
-module.exports = defineConfig({
+// Cấu hình chính cho Playwright test suite
+export default defineConfig({
   // Thư mục chứa tất cả test files
   testDir: './tests',
 
@@ -40,11 +40,15 @@ module.exports = defineConfig({
     ['list']  // Hiển thị kết quả ngay trong terminal
   ],
 
-  // Chỉ chạy trên Chrome (Chromium) cho đơn giản
+  // Cấu hình các dự án trình duyệt (Chromium và Firefox)
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
     },
   ],
 });

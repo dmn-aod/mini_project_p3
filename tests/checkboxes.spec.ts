@@ -37,4 +37,12 @@ test.describe('Checkboxes Feature', () => {
     const isChecked = await checkboxesPage.isChecked(checkboxesPage.checkbox2);
     expect(isChecked).toBe(false);
   });
+
+  test('TC07 — Toggle checkbox 1 từ unchecked sang checked rồi lại unchecked', async () => {
+    await checkboxesPage.check(checkboxesPage.checkbox1);
+    expect(await checkboxesPage.isChecked(checkboxesPage.checkbox1)).toBe(true);
+
+    await checkboxesPage.uncheck(checkboxesPage.checkbox1);
+    expect(await checkboxesPage.isChecked(checkboxesPage.checkbox1)).toBe(false);
+  });
 });

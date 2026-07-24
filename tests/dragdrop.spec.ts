@@ -30,4 +30,12 @@ test.describe('Drag and Drop Feature', () => {
     expect(afterDragA).toBe('B');
     expect(afterDragB).toBe('A');
   });
+
+  test('TC12 — Verify trạng thái ban đầu của 2 cột trước khi drag', async () => {
+    const initialA = await dragDropPage.getColumnAText();
+    const initialB = await dragDropPage.getColumnBText();
+
+    expect(initialA).toBe('A');
+    expect(initialB).toBe('B');
+  });
 });

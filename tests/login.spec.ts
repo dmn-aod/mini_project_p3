@@ -52,4 +52,22 @@ test.describe('Login Feature', () => {
     const flashText = await loginPage.getFlashMessage();
     expect(flashText).toContain('Your username is invalid');
   });
+
+  test('TC04 — Login thất bại với password trống', async ({ page }) => {
+    await loginPage.login(VALID_USERNAME, '');
+
+    await expect(page).toHaveURL(/.*login/);
+
+    const flashText = await loginPage.getFlashMessage();
+    expect(flashText).toContain('Your password is invalid');
+  });
+
+  test('TC05 — Login thất bại với username trống', async ({ page }) => {
+    await loginPage.login('', VALID_PASSWORD);
+
+    await expect(page).toHaveURL(/.*login/);
+
+    const flashText = await loginPage.getFlashMessage();
+    expect(flashText).toContain('Your username is invalid');
+  });
 });
