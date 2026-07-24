@@ -1,0 +1,37 @@
+==================================================
+PLAYWRIGHT TEST DATA - SAMPLE UPLOAD
+==================================================
+
+[SECTION 1: Standard ASCII Data]
+Username: tomsmith
+Email: test.user@example.com
+Status: Active
+Description: Standard text payload for automation testing.
+
+[SECTION 2: Vietnamese Unicode Data (Tiếng Việt có dấu)]
+Họ và tên: Nguyễn Văn An
+Địa chỉ: Số 123, Đường Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh
+Thông điệp: Chúc bạn làm việc hiệu quả với Playwright và TypeScript! Các nguyên âm: ă, â, đ, ê, ô, ơ, ư.
+
+[SECTION 3: Special Characters & Edge Cases]
+Symbols: ~!@#$%^&*()_+`-=[]\{}|;':",./<>?
+SQL Injection snippet (Safe test): ' OR '1'='1
+XSS snippet (Safe test): <script>alert('test');</script>
+
+[SECTION 4: Structured Data (JSON Format)]
+{
+  "testRunId": "TR-2026-07-24",
+  "environment": "staging",
+  "timeout": 30000,
+  "features": ["login", "checkboxes", "dropdown", "upload", "drag-and-drop"]
+}
+
+[SECTION 5: Tabular Data / CSV Simulation]
+ID,Name,Role,Active
+1,Alice,QA Engineer,true
+2,Bob,Developer,true
+3,Charlie,Product Manager,false
+
+==================================================
+END OF FILE - TOTAL SECTIONS: 5
+==================================================
