@@ -16,8 +16,10 @@ export default defineConfig({
 
   // URL gốc — thay vì gõ full URL trong từng test, dùng baseURL
   use: {
-    baseURL: 'https://the-internet.herokuapp.com',
-    
+    // Override bằng env BASE_URL (CI đọc từ secrets), fallback là site demo public
+    baseURL: process.env.BASE_URL || 'https://the-internet.herokuapp.com',
+
+
     // Chụp screenshot khi test FAIL — giúp debug
     screenshot: 'only-on-failure',
     

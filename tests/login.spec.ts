@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 
-// Credentials hợp lệ của trang demo
-const VALID_USERNAME = 'tomsmith';
-const VALID_PASSWORD = 'SuperSecretPassword!';
+// Credentials hợp lệ của trang demo — override bằng env (CI đọc từ secrets)
+const VALID_USERNAME = process.env.TEST_USERNAME || 'tomsmith';
+const VALID_PASSWORD = process.env.TEST_PASSWORD || 'SuperSecretPassword!';
 
 test.describe('Login Feature', () => {
   let loginPage: LoginPage;
